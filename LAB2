@@ -1,0 +1,159 @@
+Exercise-1
+Task 1: Setup and Configuration
+1. Initialize a new Git repository named 'ProjectRepo':
+   git init ProjectRepo
+ 
+2. Create a '.gitignore' file and add '.log' to it:
+   echo "*.log" > .gitignore
+   git add .gitignore
+   git commit -m "Ignore all .log files"
+ 
+3. Add a remote repository:
+   git remote add origin https://github.com/username/ProjectRepo.git
+ 
+
+Task 2: Branch Management and Updates
+1. Create a branch named 'development':
+   git branch development
+
+2. Switch to the 'development' branch:
+   git checkout development
+
+3. Create a file named 'dev_notes.txt' with initial content:
+   echo "Initial development notes" > dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Add initial development notes"
+  
+4. Push the 'development' branch to the remote repository:
+   git push origin development
+ 
+Task 3: Handling Merges and Conflicts
+1. On the 'development' branch, modify 'dev_notes.txt':
+   echo "More detailed development notes" >> dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Update dev_notes.txt with detailed notes"
+  
+2. Switch to the 'main' branch and modify 'dev_notes.txt':
+   git checkout main
+   echo "Updates from main branch" >> dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Update dev_notes.txt from main branch"
+
+3. Merge the 'development' branch into 'main' and resolve conflicts:
+   git merge development
+   # Resolve conflicts in your editor
+   git add dev_notes.txt
+   git commit -m "Resolve merge conflict between main and development branches"
+ 
+Task 4: Rollback and Revert Changes
+1. In the 'main' branch, commit an erroneous change:
+   echo "Erroneous content" >> dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Introduce an error in dev_notes.txt"
+
+2. Use 'git log' to identify the commit ID:
+   git log
+
+3. Revert the erroneous commit:
+   git revert <commit-id>
+
+
+Exercise-2
+Task 1: Repository Setup and Committing
+1. Initialize a new Git repository in 'ProjectX':
+   mkdir ProjectX
+   cd ProjectX
+   git init
+
+2. Create 'README.md' and add content about project objectives:
+   echo "Project Objectives: ..." > README.md
+   git add README.md
+   git commit -m "Add README with project objectives"
+
+
+Task 2: Branch Creation and File Manipulation
+1. Create a branch named 'development':
+   git branch development
+   git checkout development
+
+2. Create and add content to 'dev_notes.txt':
+   echo "Development guidelines: ..." > dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Add development notes"
+
+Task 3: Advanced Branch Management
+1. Create a branch named 'feature1' from 'development':
+   git checkout development
+   git branch feature1
+   git checkout feature1
+
+2. Add feature details to 'dev_notes.txt' and commit:
+   echo "Feature 1 implementation details" >> dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Add Feature 1 implementation details"
+  
+3. Merge 'feature1' into 'development':
+   git checkout development
+   git merge feature1
+  
+Task 4: Stashing and Retrieving
+1. Make uncommitted changes in 'dev_notes.txt' and stash them:
+   echo "Uncommitted changes" >> dev_notes.txt
+   git stash save "Uncommitted changes in dev_notes.txt"
+   
+2. Switch to `main` and update 'README.md':
+   git checkout main
+   echo "Contribution guidelines: ..." >> README.md
+   git add README.md
+   git commit -m "Add contribution guidelines to README"
+ 
+3. Return to 'development' and apply stashed changes:
+   git checkout development
+   git stash pop
+
+
+Exercise-3
+
+Branch Management and Pull Requests
+1. Fork the Repository:
+   - On GitHub, click "Fork" to create a copy of the repository in your account.
+
+2. Clone the Fork Locally:
+   git clone https://github.com/your-username/repository-name.git
+   cd repository-name
+
+3. Create a New Branch:
+   git checkout -b bug-fix
+
+4. Correct Errors in 'error_log.txt':
+   - Fix spelling mistakes or formatting issues, then save the file.
+
+5. Commit Your Fixes:
+   git add error_log.txt
+   git commit -m "Correct errors in error_log.txt"
+
+6. Push Your Branch and Create a Pull Request:
+   git push origin bug-fix
+   - On GitHub, click "Compare & pull request" to submit the changes.
+
+Exercise-4
+
+Stash and Advanced Git Features
+1. Start a New Feature:
+   git checkout feature-x
+   echo "Notes on new feature" > new_feature.md
+   git add new_feature.md
+
+2. Stash Changes:
+   git stash save "Work on new_feature.md"
+
+3. Fix an Urgent Bug:
+   git checkout development
+   echo "Urgent fix applied" > urgent_fix.txt
+   git add urgent_fix.txt
+   git commit -m "Apply urgent fix"
+ 
+
+4. Apply Stashed Changes:
+   git checkout feature-x
+   git stash pop
