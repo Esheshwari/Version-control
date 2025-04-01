@@ -1,0 +1,27 @@
+ 1. **Modify `dev_notes.txt` on the `development` branch:**
+   - git checkout development
+      echo "More detailed development notes" >> dev_notes.txt
+   Commit the change:
+     git add dev_notes.txt
+     git commit -m "Add more detailed development notes"
+  2. **Modify `dev_notes.txt` on the `main` branch:**
+   git checkout main
+     Add the new line to `dev_notes.txt`:
+     echo "Updates from main branch" >> dev_notes.txt
+  Commit the change:
+     git add dev_notes.txt
+     git commit -m "Add updates from main branch"
+  3. **Attempt to Merge `development` into `main`:**
+   git checkout main
+  Merge the `development` branch into `main`:
+    git merge development
+4. **Handle the Merge Conflict:**
+    <<<<<<< HEAD
+     Updates from main branch
+     =======
+     More detailed development notes
+     >>>>>>> development
+      git add dev_notes.txt
+     git commit -m "Resolve conflict and finalize merge"
+ 5. **Push the Merged Changes to Remote Repository:**
+    git push origin main
