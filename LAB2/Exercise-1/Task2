@@ -1,0 +1,14 @@
+1. **Check for Existing Branches:**
+     git branch -a
+2. **Create the Default Branch (if none exists):**
+    git checkout -b main
+3. **Create and Work on Your `development` Branch:**
+   git checkout -b development
+   echo "Initial development notes" > dev_notes.txt
+   git add dev_notes.txt
+   git commit -m "Add initial development notes"
+   git push -u origin development
+4. **Verify the Remote Repository:**
+   git remote add origin <REMOTE_URL>
+   git push -u origin main
+  
